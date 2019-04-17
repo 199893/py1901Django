@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    {% if username %}
+        {{username}}
+    <a href="/booktest/list/">进入图书列表</a>
+    {% else %}
+        <h1>没有登录</h1>
+    {% endif %}
+
+</body>
+</html>
