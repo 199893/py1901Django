@@ -12,6 +12,7 @@ class BookInfo(models.Model):
 class HeroInfo(models.Model):
     hname=models.CharField(max_length=20)
     hgender=models.BooleanField()
+    hcontent=models.CharField(max_length=100)
     #外键 第一个参数为表名 第二个参数代表删除类型
     hBook=models.ForeignKey('BookInfo',on_delete=models.CASCADE)
 

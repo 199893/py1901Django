@@ -16,7 +16,7 @@ class HeroInfoAdmin(admin.ModelAdmin):
     #查询框
     search_fields = ['hname']
     #分页
-    list_per_page = 1
+    list_per_page = 3
 
 class BookInfoAdmin(admin.ModelAdmin):
     # 排序显示
@@ -26,7 +26,7 @@ class BookInfoAdmin(admin.ModelAdmin):
     # 查询框
     search_fields = ['btitle']
     # 分页
-    list_per_page = 1
+    list_per_page = 3
 
     #关联，添加书时可添加英雄信息
     inlines = [HeroInfoInline]
