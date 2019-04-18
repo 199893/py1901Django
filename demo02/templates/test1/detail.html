@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+</head>
+<body>
+    <h2>{{lsid.isname}}</h2>
+    <ul>
+        <form action="/test1/details/" method="get">
+            {% for asw in lsid.answerinfo_set.all %}
+            <h1>{{asw.id}}</h1>
+                <li><input type="radio" name="votenum" value="{{asw.id}}">{{asw.awname}}</li>
+
+            {% empty %}
+                <h2>没有内容</h2>
+            {% endfor %}
+            <input type="submit" value="投票">
+        </form>
+    </ul>
+    <a href="/test1/">返回问题界面</a>
+</body>
+</html>

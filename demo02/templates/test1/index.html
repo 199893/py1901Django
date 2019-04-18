@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <ol>
+        {% for l in ls %}
+            <li><a href="/test1/detail/{{l.id}}/">{{l.isname}}</a></li>
+            {# <li><a href="/test1/delete/{{l.id}}">删除</a></li> #}
+        {% empty %}
+            <h3>没有问题</h3>
+        {% endfor %}
+    </ol>
+</body>
+</html>
