@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import BookInfo
 from django.template import loader
 
@@ -39,6 +39,17 @@ def detail(request,id):
     # cont={'book':book}
     return render(request,'booktest/detail.html',{'book':book})
 
+def delete(request,id):
+    try:
+        BookInfo.objects.get(pk=id).delete()
+        booklist = BookInfo.objects.all()
+        return render(request, 'booktest/list.html', {'booklist': booklist})
+    except:
+        return HttpResponse('删除失败')
+
+def addhero(request):
+
+    return  render(request,'booktest/addhero.html',)
 
 
 '''

@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="stylesheet" href="/static/cs/index.css">
 </head>
 <body>
-    {% if username %}
-        {{username}}
-    <a href="/booktest/list/">进入图书列表</a>
-    {% else %}
-        <h1>没有登录</h1>
-    {% endif %}
+    <div>
+        {% if username %}
+            {{username}}
+            <img src="/static/img/01.jpg" alt="">
+            <a href="/booktest/list/">进入图书列表</a>
+            <img src="/static/img/02.jpg" alt="">
 
+            {# 去除硬编码 #}
+            {% load static from staticfiles %}
+            <img src="{% static '/img/02.jpg' %}" alt="">
+
+        {% else %}
+            <h1>没有登录</h1>
+        {% endif %}
+
+    </div>
 </body>
 </html>
