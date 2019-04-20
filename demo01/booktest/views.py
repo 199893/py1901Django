@@ -54,6 +54,7 @@ def addbookhandler(request):
     # return HttpResponse('456')
     return HttpResponseRedirect('/booktest/list/')
 
+
 def delete(request,id):
     try:
         BookInfo.objects.get(pk=id).delete()
@@ -84,6 +85,16 @@ def addherohandler(request):
 
     return HttpResponseRedirect('/booktest/detail/'+str(bookid)+'/',{'book':book})
     # return HttpResponse('123')
+
+
+def deletehero(reques,id):
+    h1 = HeroInfo.objects.get(pk=id)
+    book = h1.hBook
+    HeroInfo.objects.get(pk=id).delete()
+
+    return HttpResponseRedirect('/booktest/detail/'+str(book.id)+'/')
+    # return HttpResponse('删除成功')
+
 
 '''
 视图函数 
