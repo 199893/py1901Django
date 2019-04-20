@@ -27,9 +27,10 @@ def details(request):
     return HttpResponseRedirect('/test1/da/'+str(ewq)+'/')
 
 def da(request,id):
-    res = answerInfo.objects.all()
+    res = issueInfo.objects.get(pk=id)
+    aaa = res.answerinfo_set.all()
     # return HttpResponse('111111')
-    return render(request,'test1/details.html',{'res':res})
+    return render(request,'test1/details.html',{'res':aaa})
 
 # def delete(request,id):
 #     try:
