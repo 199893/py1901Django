@@ -6,4 +6,5 @@ urlpatterns=[
     url(r'^detail/(\d+)/$', views.detail),
     url(r'delete/(\d+)/$',views.delete),
     url(r'^addhero/(\d+)/$',views.addhero),
+    url(r'^addherohandler/$',views.addherohandler)
 ]

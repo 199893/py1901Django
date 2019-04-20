@@ -7,8 +7,15 @@
 <body>
     <div>
         <h2>添加角色</h2>
-        <form action="">
-            <input type="text">
+        <form action="/booktest/addherohandler/" method="post">
+            角色名：<input type="text" name="heroname">
+            <br>
+            性别： 男<input type="radio" value="1" name="sex" checked>
+            性别： 女<input type="radio" value="0" name="sex">
+            <br>
+            绝招：<input type="text" name="herocontent">
+            <br>
+            <input type="hidden" value="{{bookid}}" name="bookid">
             <input type="submit" value="添加">
 
         </form>
