@@ -39,6 +39,21 @@ def detail(request,id):
     # cont={'book':book}
     return render(request,'booktest/detail.html',{'book':book})
 
+def addbook(request):
+    # return HttpResponse('123')
+    return render(request,'booktest/addbook.html',{})
+
+def addbookhandler(request):
+    btitle=request.POST['btitle']
+    # print(btitle)
+
+    b=BookInfo()
+    b.btitle=btitle
+    b.save()
+
+    # return HttpResponse('456')
+    return HttpResponseRedirect('/booktest/list/')
+
 def delete(request,id):
     try:
         BookInfo.objects.get(pk=id).delete()
