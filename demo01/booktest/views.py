@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import BookInfo,HeroInfo
 from django.template import loader
+from .models import AreaInfo
 
 # Create your views here.
 
@@ -19,7 +20,10 @@ def index(request):
     #简写方法
 
     # cont={'username':'jmx'}
-    return render(request,'booktest/index.html',{'username':'jmx'})
+    name = request.session.get('username')
+
+    # return render(request,'booktest/index.html',{'username':request.session['username']})
+    return render(request,'booktest/index.html',{'username':name})
 
 def list(request):
     # print('请求',request)
@@ -52,7 +56,8 @@ def addbookhandler(request):
     b.save()
 
     # return HttpResponse('456')
-    return HttpResponseRedirect('/booktest/list/')
+    # return HttpResponseRedirect('/booktest/list/')
+    return redirect(reverse('booktest:list'))
 
 
 def delete(request,id):
@@ -87,13 +92,39 @@ def addherohandler(request):
     # return HttpResponse('123')
 
 
-def deletehero(reques,id):
+def deletehero(request,id):
     h1 = HeroInfo.objects.get(pk=id)
     book = h1.hBook
     HeroInfo.objects.get(pk=id).delete()
 
     return HttpResponseRedirect('/booktest/detail/'+str(book.id)+'/')
     # return HttpResponse('删除成功')
+
+def area(request):
+    areas = AreaInfo.objects.get(pk=1)
+    return render(request, 'booktest/area.html', {'areas': areas})
+
+def page_not_found(request):
+    return render(request,'booktest/404.html')
+
+
+def login(request):
+    # if request.method=='GET':
+    #     return redirect(reverse('booktest:index'))
+    # elif request.method=='POST':
+    #     username=request.POST['username']
+    #     request.session['username']=username
+    #     return redirect(reverse('booktest:index'))
+    try:
+        if request.method == 'POST':
+            username=request.POST['username']
+            request.session['username']=username
+            return redirect(reverse('booktest:index'))
+        elif request.method=="GET":
+
+            return render(request,'booktest/login.html')
+    except:
+        return HttpResponse('asd')
 
 
 '''

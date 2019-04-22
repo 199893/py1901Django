@@ -19,6 +19,15 @@ class HeroInfo(models.Model):
     def __str__(self):
         return self.hname
 
+class AreaInfo(models.Model):
+    atitle=models.CharField(max_length=20)
+    aParent=models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True)
+
+    def __str__(self):
+        return self.atitle
+
+
+
 '''
 Django MVT  M
 ORM 对象中O 

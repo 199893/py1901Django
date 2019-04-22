@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import BookInfo,HeroInfo
 # Register your models here.
+from .models import AreaInfo
+
+admin.site.register(AreaInfo)
+
 
 class HeroInfoInline(admin.StackedInline):
     '''关联'''
