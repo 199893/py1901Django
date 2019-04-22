@@ -9,6 +9,7 @@
     <div>
         {% if username %}
             {{username}}
+            <br>
             <img src="/static/img/01.jpg" alt="">
             <a href="/booktest/list/">进入图书列表</a>
             <img src="/static/img/02.jpg" alt="">
@@ -18,7 +19,7 @@
             <img src="{% static '/img/02.jpg' %}" alt="">
 
         {% else %}
-            <h1>没有登录</h1>
+            <h1><a href="{% url 'booktest:login' %}">登录</a></h1>
         {% endif %}
 
     </div>

@@ -21,3 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('booktest/',include('booktest.urls')),
 ]
+# hanler404='booktest.views.page_not_found'
