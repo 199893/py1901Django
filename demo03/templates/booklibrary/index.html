@@ -1,0 +1,12 @@
+{% extends 'booklibrary/block.html' %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block link %}
+        <a href="#">管理员登录</a>
+        <a href="{% url 'book:login' %}">读者登录</a>
+{% endblock %}
+
+{% block body %}
+  <h2>欢迎使用</h2>
+{% endblock %}

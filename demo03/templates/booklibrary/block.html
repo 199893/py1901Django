@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} 图书管理系统 {% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<div class=page>
+  <h1>图书管理系统</h1>
+  <div class=navigation>
+    {% block link %}{% endblock %}
+  </div>
+  <div class=body>
+    {% block body %}{% endblock %}
+   </div>
+  <div class=footer>
+     &mdash; 华中科技大学
+  </div>
+</div>
