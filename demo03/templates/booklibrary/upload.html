@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片</title>
+</head>
+<body>
+    <div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            图片名: <input type="text" name="name">
+            <br>
+            <br>
+            第几张？:<input type="text" name="index">
+            <br>
+            <br>
+            选择文件:<input type="file" name="pic">
+            <br>
+            <br>
+            上传文件:<input type="submit">
+
+        </form>
+    </div>
+</body>
+</html>

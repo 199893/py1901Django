@@ -1,0 +1,16 @@
+{% extends 'booklibrary/block.html' %}
+{% load cache %}
+{% block title %} 富文本测试 {% endblock %}
+{% block body %}
+
+{% cache 500 info %}
+{% for text in text %}
+    {{text.hname|safe}}
+    <hr>
+    {{text.hcontent|safe}}
+    <hr>
+{% endfor %}
+{% endcache %}
+
+
+{% endblock %}

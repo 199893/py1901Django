@@ -23,7 +23,7 @@
 	    </dd>
 	  </form>
 	</div>
-	{% if books %}
+	{% if book %}
 	<table width="600" border="1" align="center">
 	  <tr>
 	    <th align="center"> ISBN </th>
@@ -33,14 +33,14 @@
 	    <th align="center"> 出版时间 </th>
 	    <th align="center"> 查看信息 </th>
 	  </tr>
-	  {% for book in books %}
+	  {% for book in book %}
 	  <tr>
-	    <th align="center"> {{book.book_id}}</th>
-	    <th align="center"> {{book.book_name}} </th>
+	    <th align="center"> {{book.id}}</th>
+	    <th align="center"> {{book.bname}} </th>
 	    <th align="center"> {{book.author}}</th>
-	    <th align="center"> {{book.publish_com}} </th>
-	    <th align="center"> {{book.publish_date}}</th>
-	    <th align="center"> <a href="#"> 点击进入 </a> </th>
+	    <th align="center"> {{book.publish}} </th>
+	    <th align="center"> {{book.create_time}}</th>
+	    <th align="center"> <a href="{% url 'book:book' book.id %}"> 点击进入 </a> </th>
 	  </tr>
 	  {% endfor %}
 	  {% endif %}

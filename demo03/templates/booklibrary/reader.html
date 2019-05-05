@@ -4,7 +4,7 @@
 	<a href="{% url 'book:index' %}"> 注销[{{username}}] </a> |
 	<a href="{% url 'book:query' %}"> 查询 </a> |
 	<a href="{% url 'book:info' %}"> 查看个人信息 </a> |
-	<a href="#"> 查看阅读记录 </a>
+	<a href="{% url 'book:histroy' %}"> 查看阅读记录 </a>
 
 {% endblock %}
 
